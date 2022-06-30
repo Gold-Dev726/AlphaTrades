@@ -1,0 +1,45 @@
+.inner-form-group {
+  .react-tel-input {
+    .form-control {
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      color: #ffffff;
+      border:1px solid #2d3750;
+    }
+  }
+}
+
+.react-tel-input .country-list .country .dial-code{
+  color: #ffffff;
+}
+
+.react-tel-input .country-list,
+.react-tel-input .country-list .country.highlight{
+  background-color: #333945;
+}
+
+.react-tel-input .country-list{
+	overflow: hidden;
+}
+
+.react-tel-input .selected-flag{
+  background-color: #333945;
+  
+}
+
+.react-tel-input .flag-dropdown.open{
+  background-color: #333945;
+}
+
+.react-tel-input .flag-dropdown{
+  border:1px solid #2d3750;
+  background-color: #333945;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag,
+.react-tel-input .selected-flag:hover, .react-tel-input .selected-flag:focus
+{
+  background: #333945;
+}
+

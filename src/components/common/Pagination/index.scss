@@ -1,0 +1,47 @@
+@import '../../../styles/base/variables';
+
+.pagination {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  overflow: hidden;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      &:not(:last-child) {
+        a,
+        button {
+          border-right: 1px solid #dddddd;
+        }
+      }
+      &.disabled {
+        a,
+        button {
+          pointer-events: none;
+          color: #707070;
+        }
+      }
+      &.active {
+        a,
+        button {
+          background-color: $blue-primary;
+          color: $white;
+        }
+      }
+      a,
+      button {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 0 10px;
+        min-height: 35px;
+        background-color: $white;
+        color: $blue-primary;
+      }
+    }
+  }
+}

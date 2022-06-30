@@ -1,0 +1,73 @@
+@import "./../../../styles/base/variables";
+
+.MuiButton-text.blue-btn,
+.blue-btn {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  background: $blue-primary;
+  line-height: inherit;
+  text-transform: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: normal;
+  color: $white;
+  transition: 0.4s ease all;
+  -webkit-transition: 0.4s ease all;
+  -moz--transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  cursor: pointer;
+  pointer-events: auto;
+  &:hover {
+    background-color: $blue-button-hover;
+  }
+  i {
+    margin-right: 7px;
+  }
+  &:disabled {
+    opacity: 0.7;
+    color: $white;
+    pointer-events: auto;
+    cursor: no-drop;
+    &:hover {
+      color: $white;
+      background: $blue-primary;
+    }
+  }
+}
+
+.blue-btn .loader-spin {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+}
+/* Loader Css  */
+.loader-spin {
+  border: 3px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid #3498db;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
