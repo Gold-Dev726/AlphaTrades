@@ -3,7 +3,6 @@ import { Switch, Route, NavLink, useHistory } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import signalIcon from "../../images/signal-icon.svg";
 
-
 import performanceIcon from "../../images/performance-icon.svg";
 import modelsIcon from "../../images/models-icon.svg";
 import stakingIcon from "../../images/staking-icon.svg";
@@ -21,7 +20,6 @@ import _ from "lodash";
 import { fetchProfileDetails } from "./../../actions/authenticationAction";
 import authenticationService from "../../services/authenticationService";
 import useWindowDimensions from "../../Hooks/useWindowDimensions";
-
 
 import { useTranslation } from "react-i18next";
 import i18n from "./../../translations/i18n";
@@ -52,8 +50,6 @@ const Home = (props) => {
     setOpen(!open);
   };
 
-
-
   const handleSidebarItemClick = () => {
     storage.remove("activeTab");
   };
@@ -63,8 +59,6 @@ const Home = (props) => {
     <>
       {/* {errorModalloading && <DisplayErrorModal />} */}
       <section className="site-wapper">
-
-
         <span onClick={handleDrawer} className="icn-img hamberguermenu">
           <img src={hamburgerIcon} alt="logo" className="on-open" />
         </span>
@@ -129,7 +123,9 @@ const Home = (props) => {
                     if (match !== null) {
                       isActive = match.isExact;
                     }
-                    return isActive || location.pathname.includes("/performance");
+                    return (
+                      isActive || location.pathname.includes("/performance")
+                    );
                   }}
                 >
                   <button onClick={handleSidebarItemClick}>
@@ -146,6 +142,78 @@ const Home = (props) => {
               </li>
 
               <li>
+                {/* <NavLink
+                  to="/investor"
+                  exact
+                  // isActive={(match, location) => {
+                  //   let isActive = false;
+                  //   if (match !== null) {
+                  //     isActive = match.isExact;
+                  //   }
+                  //   return isActive || location.pathname.includes("/income");
+                  // }}
+                > */}
+                  <button onClick={handleSidebarItemClick}>
+                    <span className="icn-img">
+                      <img src={stakingIcon} alt="logo" className="on-open" />
+                    </span>
+                    <span className="text">Investor</span>
+                  </button>
+                {/* </NavLink> */}
+                <li style={{ marginLeft: 32 }}>
+                  <NavLink
+                    to="/income"
+                    exact
+                    isActive={(match, location) => {
+                      let isActive = false;
+                      if (match !== null) {
+                        isActive = match.isExact;
+                      }
+                      return isActive || location.pathname.includes("/income");
+                    }}
+                  >
+                    <button onClick={handleSidebarItemClick}>
+                      <span className="text">Income</span>
+                    </button>
+                  </NavLink>
+                </li>
+                <li style={{ marginLeft: 32 }}>
+                  <NavLink
+                    to="/staking"
+                    exact
+                    isActive={(match, location) => {
+                      let isActive = false;
+                      if (match !== null) {
+                        isActive = match.isExact;
+                      }
+                      return isActive || location.pathname.includes("/staking");
+                    }}
+                  >
+                    <button onClick={handleSidebarItemClick}>
+                      <span className="text">Staking</span>
+                    </button>
+                  </NavLink>
+                </li>
+                <li style={{ marginLeft: 32 }}>
+                  <NavLink
+                    to="/dao"
+                    exact
+                    isActive={(match, location) => {
+                      let isActive = false;
+                      if (match !== null) {
+                        isActive = match.isExact;
+                      }
+                      return isActive || location.pathname.includes("/dao");
+                    }}
+                  >
+                    <button onClick={handleSidebarItemClick}>
+                      <span className="text">DAO</span>
+                    </button>
+                  </NavLink>
+                </li>
+              </li>
+
+              {/* <li>
                 <NavLink
                   to="/staking"
                   exact
@@ -193,7 +261,7 @@ const Home = (props) => {
                     className="on-open"
                   />
                 </div>
-              </li>
+              </li> */}
 
               <li>
                 <NavLink
@@ -259,10 +327,8 @@ const mapStateToProps = (state) => {
     uiloading: state.ui && state.ui.uiloading,
     profile: state.profile,
     isNavOpen: state.ui && state.ui.isNavOpen,
-    errorModalloading: _.get(state, ["errorReducer", "errorModalloading"]),
+    errorModalloading: _.get(state, ["errorReducer", "errorModalloading"])
   };
 };
 
-export default connect(mapStateToProps, {
-
-})(Home);
+export default connect(mapStateToProps, {})(Home);

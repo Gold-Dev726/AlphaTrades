@@ -9,6 +9,7 @@ import Dao from "./components/Dao";
 import Alerts from "./components/Alerts";
 import Performance from "./components/Performance";
 import Stacking from "./components/Stacking";
+import Income from "./components/Income";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as actionTypes from "./actions/actionTypes";
@@ -84,6 +85,7 @@ export default function Routes() {
             <PublicRoute path="/" exact auth={true} component={TradersLayout(Signals)} />
             <PublicRoute path="/models" exact auth={true} component={TradersLayout(Models)} />
             <PublicRoute path="/staking" exact auth={true} component={TradersLayout(Stacking)} />
+            <PublicRoute path="/income" exact auth={true} component={TradersLayout(Income)} />
             <PublicRoute path="/dao" exact auth={true} component={TradersLayout(Dao)} />
             <PublicRoute path="/performance" exact auth={true} component={TradersLayout(Performance)} />
             <PublicRoute path="/alerts" exact auth={true} component={TradersLayout(Alerts)} />

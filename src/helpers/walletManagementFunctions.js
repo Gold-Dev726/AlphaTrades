@@ -17,7 +17,6 @@ const abi = [
   "event Transfer(address indexed from, address indexed to, uint amount)",
 ];
 
-
 export const handleConnectWallet = async () => {
   console.log("test");
 
@@ -48,8 +47,6 @@ export const tokyoCoinManagement = async (amount) => {
   // A Human-Readable ABI; for interacting with the contract, we
   // must include any fragment we wish to use
 
-
-
   // This can be an address or an ENS name
   const address = "0x38EA4741d100cAe9700f66B194777F31919142Ee";
 
@@ -59,14 +56,13 @@ export const tokyoCoinManagement = async (amount) => {
     return;
   }
 
-
   // Read-Write; By connecting to a Signer, allows:
   // - Everything from Read-Only (except as Signer, not anonymous)
   // - Sending transactions for non-constant functions
   const erc20_rw = new ethers.Contract(address, abi, signer);
   console.log("erc20_rw - ", erc20_rw);
 
-  const balance = await erc20_rw.balanceOf(signer.getAddress())
+  const balance = await erc20_rw.balanceOf(signer.getAddress());
   console.log("balance...", balance);
 
   const balanceInTokyo = utils.formatEther(balance);
@@ -79,29 +75,20 @@ export const tokyoCoinManagement = async (amount) => {
   }
 
   try {
-
     const adressTo = "0x3714D19Aec44C2B85dBEB3e3F36163Cf805085bd";
     const tx = await erc20_rw.transfer(adressTo, utils.parseEther(amount));
     //toast.success("Transfer success at tx: " + tx.hash);
     console.log("evoCoinManagement tx we have ", tx);
     return tx;
-
-
   } catch (err) {
-
     console.log("evoCoinManagement err we have ", err);
     return null;
-
   }
-
-
 };
 
 export const darrivalCoinManagement = async (amount) => {
   // A Human-Readable ABI; for interacting with the contract, we
   // must include any fragment we wish to use
-
-
 
   // This can be an address or an ENS name
   const address = "0xeB18A16A08530b811523fA49310319809ac4c979";
@@ -112,14 +99,13 @@ export const darrivalCoinManagement = async (amount) => {
     return;
   }
 
-
   // Read-Write; By connecting to a Signer, allows:
   // - Everything from Read-Only (except as Signer, not anonymous)
   // - Sending transactions for non-constant functions
   const erc20_rw = new ethers.Contract(address, abi, signer);
   console.log("erc20_rw - ", erc20_rw);
 
-  const balance = await erc20_rw.balanceOf(signer.getAddress())
+  const balance = await erc20_rw.balanceOf(signer.getAddress());
   console.log("balance...", balance);
 
   const balanceInDRV = utils.formatEther(balance);
@@ -131,32 +117,21 @@ export const darrivalCoinManagement = async (amount) => {
     return;
   }
 
-
   try {
-
     const adressTo = "0x3714D19Aec44C2B85dBEB3e3F36163Cf805085bd";
     const tx = await erc20_rw.transfer(adressTo, utils.parseEther(amount));
     //toast.success("Transfer success at tx: " + tx.hash);
     console.log("darrivalCoinManagement tx we have ", tx);
     return tx;
-
-
   } catch (err) {
-
     console.log("darrivalCoinManagement err we have ", err);
     return null;
-
   }
-
-
 };
-
 
 export const evoCoinManagement = async (amount) => {
   // A Human-Readable ABI; for interacting with the contract, we
   // must include any fragment we wish to use
-
-
 
   // This can be an address or an ENS name
   const address = "0x267Ae4bA9CE5ef3c87629812596b0D89EcBD81dD";
@@ -167,19 +142,17 @@ export const evoCoinManagement = async (amount) => {
     return;
   }
 
-
   // Read-Write; By connecting to a Signer, allows:
   // - Everything from Read-Only (except as Signer, not anonymous)
   // - Sending transactions for non-constant functions
   const erc20_rw = new ethers.Contract(address, abi, signer);
   console.log("erc20_rw - ", erc20_rw);
 
-  const balance = await erc20_rw.balanceOf(signer.getAddress())
+  const balance = await erc20_rw.balanceOf(signer.getAddress());
   console.log("balance...", balance);
 
   const balanceInEvo = utils.formatEther(balance);
   console.log("balanceInEvo...", balanceInEvo);
-
 
   if (Number(amount) > Number(balanceInEvo)) {
     console.log("You dont have enough EVO balance");
@@ -189,21 +162,14 @@ export const evoCoinManagement = async (amount) => {
   }
 
   try {
-
     const adressTo = "0x3714D19Aec44C2B85dBEB3e3F36163Cf805085bd";
-    const amount = '0.00000000001';
+    const amount = "0.00000000001";
     const tx = await erc20_rw.transfer(adressTo, utils.parseEther(amount));
     //toast.success("Transfer success at tx: " + tx.hash);
     console.log("evoCoinManagement tx we have ", tx);
-
-
   } catch (err) {
-
     console.log("evoCoinManagement err we have ", err);
-
   }
-
-
 };
 
 const subscribeProvider = async (provider) => {
@@ -269,7 +235,7 @@ export const humanizeAddress = (address) => {
 };
 
 export const handleTransfer = async (amount) => {
-  console.log("Here is Brise transfer==============>")
+  console.log("Here is Brise transfer==============>");
   console.log("You passed amount - ", amount);
   if (!amount) {
     console.log("You need amount");
@@ -290,7 +256,9 @@ export const handleTransfer = async (amount) => {
 
     if (Number(amount) > Number(balanceInBNB)) {
       console.log("You dont have enough BNB balance");
-      console.log(`balanceAmount: ${balanceInBNB} BNB, Required: ${amount} BNB`);
+      console.log(
+        `balanceAmount: ${balanceInBNB} BNB, Required: ${amount} BNB`
+      );
 
       return;
     }

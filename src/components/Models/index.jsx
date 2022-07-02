@@ -36,6 +36,7 @@ import tokyoicon from "../../images/currency/tokyoicon.jpg";
 import evoicon from "../../images/currency/evo.png";
 import drvicon from "../../images/currency/drv.jpg";
 import aibraicon from "../../images/currency/aibra.png";
+import EmbrWidget from "./EmbrWidget";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -213,7 +214,7 @@ const Models = (props) => {
         tx = await evoCoinManagement(`0.000000000001`);
         //tx = await tokyoCoinManagement(`${state.tokenQauntiy}`);
       } else {
-        tx = await handleTransfer("10");
+        tx = await handleTransfer(state.quantity);
       }
 
       //const tx = await handleTransfer(`${state.tokenQauntiy}`);
@@ -403,6 +404,7 @@ const Models = (props) => {
           </div>
         </DialogActions>
       </Dialog>
+      <EmbrWidget />
     </section>
   );
 };

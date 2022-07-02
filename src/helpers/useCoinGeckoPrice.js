@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
+import { useEffect, useState, useRef } from "react";
+import axios from "axios";
 /**
  * Provides a web3 provider with or without user's signer
  * Recreate web3 instance only if the provider change
@@ -13,7 +13,7 @@ const useCoinGeckoPrice = (token) => {
     const fectchPrice = async () => {
       const data = await axios.get(endpoint);
       setPrice(data.data[token].usd);
-      console.log('coingecko:', data.data[token].usd);
+      console.log("coingecko:", data.data[token].usd);
     };
     fectchPrice();
   }, [endpoint, token]);
